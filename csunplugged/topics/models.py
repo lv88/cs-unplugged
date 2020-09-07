@@ -207,6 +207,7 @@ class ProgrammingChallenge(TranslatableModel):
     challenge_set_number = models.PositiveSmallIntegerField()
     challenge_number = models.PositiveSmallIntegerField()
     content = models.TextField(default="")
+    testing_examples = models.TextField(default="")
     extra_challenge = models.TextField(default="")
     learning_outcomes = models.ManyToManyField(
         LearningOutcome,
@@ -283,6 +284,8 @@ class ProgrammingChallengeLanguage(TranslatableModel):
 
 class ProgrammingChallengeImplementation(TranslatableModel):
     """Model for programming challenge language implementation in database."""
+
+    RETURN_TO_PARENT = _("Return to programming challenge")
 
     #  Auto-incrementing 'id' field is automatically set by Django
     topic = models.ForeignKey(
